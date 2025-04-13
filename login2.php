@@ -1,0 +1,88 @@
+<?php
+session_start();
+
+// Savienojuma dati
+$servername = "localhost";
+$username = "u547027111_mvg";
+$password = "MVGskola1";
+$dbname = "u547027111_mvg";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+if ($conn->connect_error) {
+    die("Savienojuma kļūda: " . $conn->connect_error);
+}
+
+$error_message = "";
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $email = trim($_POST['email']);
+    $password = trim($_POST['password']);
+
+    $stmt = $conn->prepare("SELECT id, password_hash, is_verified FROM logcilveki WHERE email = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $stmt->store_result();
+
+    if ($stmt->num_rows > 0) {
+        $stmt->bind_result($id, $password_hash, $is_verified);
+        $stmt->fetch();
+
+        if ($is_verified == 0) {
+            $error_message = "Šis e-pasts vēl nav verificēts! Pārbaudi savu pastkasti.";
+        } elseif (password_verify($password, $password_hash)) {
+            $_SESSION['user_id'] = $id;
+            $_SESSION['email'] = $email;
+
+            // Pēc ielogošanās, pārbauda, vai ir saglabāti itemID un devejaID
+            $redirect_itemID = $_SESSION['redirect_itemID'] ?? null;
+            $redirect_devejaID = $_SESSION['redirect_devejaID'] ?? null;
+
+            // Notīram sesijas mainīgos pēc lietošanas
+            unset($_SESSION['redirect_itemID']);
+            unset($_SESSION['redirect_devejaID']);
+
+            if ($redirect_itemID && $redirect_devejaID) {
+                header("Location: interese.php?itemID=$redirect_itemID&devejaID=$redirect_devejaID");
+            } else {
+                header("Location: tituls.php");
+            }
+            exit();
+        } else {
+            $error_message = "Nepareiza parole!";
+        }
+    } else {
+        $error_message = "Lietotājs ar šo e-pastu nav reģistrēts!";
+    }
+    $stmt->close();
+}
+$conn->close();
+?>
+
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pieteikšanās</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="login-wrapper">
+        <div class="login2-box">
+            <h2>PIESLĒGTIES</h2>
+        </div>
+        <div class="login-box">
+            <?php if (!empty($error_message)): ?>
+                <p style="color:red; text-align:center;"><?php echo $error_message; ?></p>
+            <?php endif; ?>
+            <form action="login2.php" method="POST">
+                <input type="email" name="email" placeholder="E-pasts" required>
+                <input type="password" name="password" placeholder="Parole" required>
+                <button type="submit" class="login-button">PIETEIKTIES</button>
+            </form>
+            <p>Nav konta? <a href="register.php">REĢISTRĒJIES</a></p>
+        </div>
+    </div>
+</body>
+</html>

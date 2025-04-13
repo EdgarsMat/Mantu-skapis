@@ -1,0 +1,244 @@
+body {
+    background: url('images/fons2.jpg') no-repeat center center fixed;
+    font-family: Arial, sans-serif;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    flex-direction: column;
+    color: white;
+    padding: 20px;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Fona attēls ar fiksētu pozīciju */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url('images/fons2.jpg') no-repeat center center;
+    background-size: cover;
+    z-index: -1; /* Lai saturs būtu virs fona */
+}
+
+
+header {
+    height: 50px;
+}
+
+.lapa {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    margin: 20px;
+}
+
+.augsa {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding: 20px;
+}
+
+.logo img {
+    display: flex;
+    width: 200px;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 12px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px);
+    margin-bottom: 10px;
+    margin-top: 100px;
+    
+}
+
+h1 {
+    font-size: 36px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    margin-top: 40px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Uzlabota form-group sadaļa */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    gap: 5px;
+}
+
+.form-group label {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.8);
+    color: black;
+    transition: border 0.3s ease-in-out;
+}
+
+.form-group input:focus {
+    border: 2px solid #007BFF;
+    outline: none;
+}
+
+/* Pogas */
+.buttons {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+    align-self: center;
+    display: grid;
+
+}
+
+.button {
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    margin: 5px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    text-transform: uppercase;
+    align-self: center;
+    display: grid
+
+}
+
+p {
+    align-self: center;
+}
+
+
+
+.delete {
+    background-color: red;
+    color: white;
+}
+
+.edit {
+    background-color: green;
+    color: white;
+}
+
+.button:hover {
+    background: #007BFF;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Vertikālo pogu stils */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.button-container .button {
+    width: 220px;
+    background-color: rgba(0, 0, 0, 0.6);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+    color: white;
+}
+
+.image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Visam konteinerim */
+#editForm {
+    background: #000000;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    max-width: 500px;
+    margin: 20px auto;
+    color: #fff;
+}
+
+#editForm h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Ievades lauki */
+#editForm input[type="text"],
+#editForm textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.8);
+    color: black;
+    transition: border 0.3s ease-in-out;
+}
+
+/* Poga */
+#editForm button {
+    width: 100%;
+    padding: 10px;
+    background: #007bff;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#editForm button:hover {
+    background: #0056b3;
+}
+
+/* Pielāgojumi mobilajām ierīcēm */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 28px;
+    }
+
+    .container {
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    .button-container .button {
+        width: 100%;
+    }
+}

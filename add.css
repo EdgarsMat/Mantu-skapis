@@ -1,0 +1,129 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Fona attēls ar fiksētu pozīciju */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url('images/fons2.jpg') no-repeat center center;
+    background-size: cover;
+    z-index: -1; /* Lai saturs būtu virs fona */
+}
+
+header{
+    height: 50px;
+}
+
+.lapa {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.container {
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center
+}
+
+/* Pielāgota faila izvēles poga */
+.file-upload {
+    display: inline-block;
+    color: white;
+    font-weight: bold;
+    background: #007BFF; /* Zils fons */
+    padding: 10px 70px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: background 0.3s;
+}
+.file-upload:hover {
+    background: #0056b3; /* Tumšāks zils uz hover */
+}
+
+/* Paslēpj noklusējuma faila izvēles lauku */
+input[type="file"] {
+    display: none;
+}
+
+/* Stilizē vietu, kur parādīsies faila nosaukums */
+#fileName {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: white;
+    font-weight: bold;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: gray;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: background 0.3s ease-in-out;
+}
+
+button:hover {
+    background: #007BFF; /* Change to blue */
+    color: white; /* Keep text white */
+}
+
+.logo img {
+    display: flex;
+    width: 200px;
+    align-items: center;
+    margin-bottom: 80px;
+}
+
+
+
+
+/* input{
+    align-self: center;
+    width: 400px;
+    margin-top: 20px;
+    min-height: 100px;
+    color: white;
+    text-align: center;
+    line-height: 100px;
+    padding: 0;
+    outline: none;
+    border: 1px solid #cdcdcd;
+    border-color: rgba(0,0,0,.15);
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    font-size: 16px;
+    border-radius: 10px;
+    
+    } */

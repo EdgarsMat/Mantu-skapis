@@ -1,0 +1,149 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+/* Fona attēls ar fiksētu pozīciju */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url('images/fons2.jpg') no-repeat center center;
+    background-size: cover;
+    z-index: -1; /* Lai saturs būtu virs fona */
+}
+
+/* Konteinera stils */
+.container {
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 12px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px);
+    margin-top: 50px;
+}
+
+/* Virsraksti */
+h1 {
+    font-size: 36px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+h3{
+font-weight: bold;
+}
+
+p{
+    font-weight: bold;
+    }
+    
+
+/* Formas grupas */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    gap: 5px;
+}
+
+.form-group label {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.form-group textarea {
+    width: 100%;
+    min-height: 120px; /* Palielina laukuma augstumu, lai tas būtu pamanāmāks */
+    padding: 12px;
+    border: 2px solid rgba(0, 0, 0, 0.5); /* Tumšāks rāmis */
+    border-radius: 10px; /* Noapaļoti stūri */
+    background: rgba(255, 255, 255, 0.9); /* Pastāvīgi gaišs fons */
+    color: black;
+    font-size: 16px;
+    transition: border 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Neliela ēna */
+}
+
+/* Kad laukam uzbrauc virsū vai sāk rakstīt */
+.form-group textarea:focus {
+    border: 2px solid #007BFF; /* Izceļas ar zilu krāsu */
+    box-shadow: 0px 4px 12px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+/* Pogas */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.button {
+    padding: 12px;
+    width: 220px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    margin: 5px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+    color: white;
+    display: block;
+    text-decoration: none;
+}
+
+/* Pogas efekti */
+.button.edit {
+    background-color: green;
+}
+
+.button.delete {
+    background-color: rgb(71, 71, 71);
+}
+
+.button:hover {
+    background: #007BFF;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Attēla stilizācija */
+.image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Pielāgojumi mobilajām ierīcēm */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 28px;
+    }
+
+    .container {
+        max-width: 90%;
+        padding: 15px;
+    }
+
+    .button-container .button {
+        width: 100%;
+    }
+}

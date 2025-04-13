@@ -1,0 +1,224 @@
+/* Noņem noklusējuma margin/padding */
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Fona attēls ar fiksētu pozīciju */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url('images/fons2.jpg') no-repeat center center;
+    background-size: cover;
+    z-index: -1; /* Lai saturs būtu virs fona */
+}
+
+/* Wrapper centram */
+.login-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Konteiners ar pieteikšanās lodziņu */
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* "PIESLĒGTIES" Box */
+.login-box {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px 30px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px; /* Atstarpes starp elementiem */
+    width: 335px;
+}
+
+/* Google Sign-in Button */
+.google-signin img {
+    width: 300px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+/* "TĀLĀK" Poga */
+.next-button {
+    width: 300px;
+    padding: 10px;
+    background: gray;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out;
+    margin-bottom: 10px;
+}
+
+.next-button:hover {
+    background: #007BFF; /* Zilā krāsā uz hover */
+    color: white;
+}
+
+
+
+
+
+
+
+header {
+    height: 50px;
+}
+
+/* Galvenais konteiners */
+.lapa {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+/* Augšējais bloks ar logo */
+.augsa {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding: 20px;
+}
+
+.logo img {
+    width: 200px;
+}
+
+h1 {
+    font-size: 40px;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    margin-top: 5px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}
+
+/* Galvenā sadaļa */
+main {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+}
+
+/* Bloks katram ierakstam */
+.item-container {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Atstarpes starp laukiem */
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    width: 100%;
+}
+
+/* Attēls (lielāks bloks) */
+.image-box {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Teksta lauki pa labi */
+.text-box {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 10px; /* Atstarpe starp nosaukumu un aprakstu */
+}
+
+/* Nosaukums un apraksts */
+.item {
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Apakšējā poga */
+.pie-apaksa {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* Teksts apakšā */
+.teksts {
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+}
+
+/* Poga */
+button {
+    background-color: #004d99;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #003366;
+}
+
+/* Mobilajās ierīcēs pielāgo izkārtojumu */
+@media (max-width: 768px) {
+    .item-container {
+        flex-direction: column; /* Stacks everything */
+        align-items: center;
+    }
+
+    .text-box {
+        width: 100%;
+    }
+}
